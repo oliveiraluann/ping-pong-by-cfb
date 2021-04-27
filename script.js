@@ -52,7 +52,14 @@ var tecla;
 jogo=false;
 
 function iniciarJogo() {
-    
+    if(!jogo) {
+        jogo=true;
+        dirJy=0;
+        posBolaX=posBolaIniX;
+        posBolaY=posBolaIniY;
+        posJogadorY=posJogIniY;
+        posCpuY=posCpuIniY;
+    }
 }
 
 function inicializar() {
