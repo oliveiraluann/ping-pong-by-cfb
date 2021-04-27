@@ -78,7 +78,7 @@ function teclaUp() {
 
 function game() {
     if(jogo) {
-
+        controlarJogador();
     }
     frames=requestAnimationFrame(game);
 }
