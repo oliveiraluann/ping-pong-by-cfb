@@ -39,7 +39,6 @@ var bolaH=20;
 //Direção (bola)
 var bolaX;
 var bolaY;
-var jogY=0;
 var cpuY=0;
 
 //Velocidade
@@ -50,5 +49,20 @@ var velJogador;
 //Controle
 var pontos=0;
 var tecla;
+jogo=false;
 
-window.addEventListener("load", iniciar);
+function iniciarJogo() {
+    
+}
+
+function inicializar() {
+    btnIniciar=document.getElementById("btnIniciar");
+    btnIniciar.addEventListener("click", iniciarJogo);
+    jogador=document.getElementById("jogador");
+    cpu=document.getElementById("cpu");
+    bola=document.getElementById("bola");
+    painelTxtPontos=getElementById("txtPontos");
+
+}
+
+window.addEventListener("load", inicializar);
