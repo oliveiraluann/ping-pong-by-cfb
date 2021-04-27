@@ -51,25 +51,61 @@ var pontos=0;
 var tecla;
 jogo=false;
 
+function controlarJogador() {
+    if(jogo) {
+        posJogadorY+=velJogador*dirJy;
+        velJogador.style.top=posJogadorY+"px";
+    }
+}
+
+function teclaDw() {
+    tecla=event.keyCode;
+    if(tecla==38) {
+        dirJy=-1;
+    }else if(tecla==40) {
+        dirJy=1;
+    }
+}
+
+function teclaUp() {
+    tecla=event.keyCode;
+    if(tecla==38) {
+        dirJy=0;
+    }else if(tecla==40) {
+        dirJy=0;
+    }
+}
+
+function game() {
+    if(jogo) {
+
+    }
+    frames=requestAnimationFrame(game);
+}
+
 function iniciarJogo() {
     if(!jogo) {
+        cancelAnimationFrame(frames);
         jogo=true;
         dirJy=0;
         posBolaX=posBolaIniX;
         posBolaY=posBolaIniY;
         posJogadorY=posJogIniY;
         posCpuY=posCpuIniY;
+        game();
     }
 }
 
 function inicializar() {
+    velBola=velCpu=velJogador=8;
     btnIniciar=document.getElementById("btnIniciar");
     btnIniciar.addEventListener("click", iniciarJogo);
     jogador=document.getElementById("jogador");
     cpu=document.getElementById("cpu");
     bola=document.getElementById("bola");
-    painelTxtPontos=getElementById("txtPontos");
-
+    painelTxtPontos=document.getElementById("txtPontos");
+    document.addEventListener("keydown", teclaDw);
+    document.addEventListener("keyup", teclaUp);
 }
 
 window.addEventListener("load", inicializar);
